@@ -22,4 +22,14 @@ public class CarreraRecreativa extends Carrera {
     public String toString() {
         return super.toString();
     }
+
+    @Override
+    public boolean podesSerPatrocinado() {
+        return false;
+    }
+
+    @Override
+    public String getNombre() {
+        return this.nombre;
+    }
 }

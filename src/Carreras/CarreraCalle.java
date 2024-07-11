@@ -30,5 +30,15 @@ public class CarreraCalle extends Carrera {
             unCorredor.actualizarDistancia(this.distancia);
         }
     }
+
+    @Override
+    public boolean podesSerPatrocinado() {
+        return corredoresIncriptos.size() >= 100;
+    }
+
+    @Override
+    public String getNombre() {
+        return this.nombre;
+    }
 }
 

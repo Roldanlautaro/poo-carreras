@@ -1,6 +1,8 @@
 package Corredores;
 
-public class Corredor {
+import Sponsors.Patrocinable;
+
+public class Corredor implements Patrocinable {
 
     private String nombre;
     private boolean certificado;
@@ -61,4 +63,13 @@ public class Corredor {
         return  "Nombre del corredor : " + this.nombre + "\n" + "Cantidad de carreras : " + cantidadCarreras + "\n" + "Distancia Máxima :" + distanciaMaxima + "KM" + "\n" + "Puntos: " + puntos;
     }
 
+    @Override
+    public boolean podesSerPatrocinado() {
+        return getCantidadCarreras() >= 3;
+    }
+
+    @Override
+    public String getNombre() {
+        return this.nombre;
+    }
 }

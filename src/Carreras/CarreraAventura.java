@@ -7,10 +7,11 @@ public class CarreraAventura extends Carrera{
     private int cupomaximo;
     private int puntos;
 
-    public CarreraAventura(String nombre,int distancia,int desnivel) {
+    public CarreraAventura(String nombre,int distancia,int desnivel,int cupomaximo) {
         this.nombre = nombre;
         this.distancia = distancia;
         this.desnivel = desnivel;
+        this.cupomaximo = cupomaximo;
     }
 
     public void setCupomaximo(int cupomaximo) {
@@ -47,5 +48,27 @@ public class CarreraAventura extends Carrera{
                 "Cupo maximo : " + this.cupomaximo + "\n" +
                 "Puntos : " + this.calcularPuntos() + "\n";
         return out + super.toString();
+    }
+
+    private boolean contasConCorredorAlMenos5Puntos(){
+        boolean tenesCorredor = false;
+        for (Corredor corredor : this.corredoresIncriptos){
+            if (corredor.getPuntos() >= 5){
+                tenesCorredor = true;
+            }
+        }return tenesCorredor;
+    }
+
+    private boolean condicionDesnivel(){
+        return this.desnivel >= 2000;
+    }
+    @Override
+    public boolean podesSerPatrocinado() {
+        return this.contasConCorredorAlMenos5Puntos() || this.condicionDesnivel();
+    }
+
+    @Override
+    public String getNombre() {
+        return this.nombre;
     }
 }

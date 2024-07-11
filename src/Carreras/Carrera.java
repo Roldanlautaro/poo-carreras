@@ -1,10 +1,12 @@
 package Carreras;
 
 import Corredores.Corredor;
+import Sponsors.Patrocinable;
+
 import java.util.HashSet;
 import java.util.Set;
 
-public abstract class Carrera {
+public abstract class Carrera implements Patrocinable {
     protected String nombre;
     protected int distancia;
     protected Set<Corredor> corredoresIncriptos = new HashSet<>();
